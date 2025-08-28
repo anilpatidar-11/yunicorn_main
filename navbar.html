@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Responsive Header with Right Sidebar</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Header styles */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #004080;
+    color: white;
+    position: relative;
+  }
+
+  .logo img {
+    width: 150px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+
+  nav a:hover {
+    background-color: #0066cc;
+  }
+
+  /* Contact and menu button */
+  .contact {
+    margin-left: 20px;
+  }
+
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+
+  .menu-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Sidebar styles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* hidden by default */
+    width: 300px;
+    height: 100%;
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    right: 0;
+  }
+
+  .sidebar h2 {
+    margin-top: 0;
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .sidebar nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .sidebar nav a:hover {
+    text-decoration: underline;
+  }
+
+  .sidebar .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav.main-nav {
+      display: none;
+    }
+    .menu-btn {
+      display: block;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="images/logo.webp" alt="Logo" /></a>
+  </div>
+
+  <nav class="main-nav">
+    <a href="service.html">Services</a>
+    <a href="industries&Solutions.html">Industries & Solutions</a>
+    <a href="about.html">About Us</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
+
+  <div class="contact">
+    <a href="tel:+918888888888" style="color: white; text-decoration:none;">+91 XXXXXXXXXX</a>
+  </div>
+
+  <button class="menu-btn" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</header>
+
+<!-- Sidebar -->
+<aside class="sidebar" aria-hidden="true">
+  <button class="close-btn" aria-label="Close menu">&times;</button>
+  <h2>Menu</h2>
+  <nav>
+    <a href="service.html">Services</a>
+    <a href="technologies.html">Technologies</a>
+    <a href="software-development.html">Software Development</a>
+    <a href="web-development.html">Web Development</a>
+    <a href="mobile-development.html">Mobile App Development</a>
+    <a href="data-science-consulting.html">Data Science & AI</a>
+    <a href="qa-software-testing-services.html">QA & Software Testing</a>
+    <a href="ui-ux-design-services.html">UX/UI Design</a>
+    <a href="industries&Solutions.html">Industries & Solutions</a>
+    <a href="about.html">About Us</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
+</aside>
+
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const sidebar = document.querySelector('.sidebar');
+  const closeBtn = document.querySelector('.close-btn');
+
+  menuBtn.addEventListener('click', () => {
+    sidebar.classList.add('active');
+    sidebar.setAttribute('aria-hidden', 'false');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    sidebar.setAttribute('aria-hidden', 'true');
+  });
+
+  // Close sidebar when clicking outside sidebar on mobile
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+      sidebar.classList.remove('active');
+      sidebar.setAttribute('aria-hidden', 'true');
+    }
+  });
+</script>
+
+</body>
+</html>
