@@ -21839,104 +21839,106 @@
 <!-- service css ******************* -->
 
 
-<style>
-        /* body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f8f8f8;
-            color: #111;
-        } */
+  <style>
 
-        .services-container {
-            max-width: 1200px;
-            margin: 100px auto;
-            padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
+.services-image {
+  flex: 1 1 300px;
+  min-width: 280px;
+  max-width: 350px;
+  border-radius: 20px;
+  overflow: hidden; /* ensures image corners follow the rounded box */
+}
 
-        }
+.services-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps aspect ratio and fills box */
+  display: block;
+}
 
-        /* Technologies box */
-        .tech-box {
-            background: #111;
-            color: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            flex: 1 1 250px;
-            min-width: 250px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: relative;
-            border: 1px solid rgb(35, 31, 31);
-        }
+    .services-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-        .tech-box img {
-            width: 100%;
-            border-radius: 10px;
-        }
+    /* Left image box */
+    .services-image {
+      flex: 1 1 300px;
+      min-width: 280px;
+      max-width: 350px;
+      background: #b0a8a8;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      height: 400px;
+    }
 
-        .tech-box h3 {
-            margin: 0;
-            font-size: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* Right content */
+    .services-content {
+      flex: 2 1 500px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
 
-        .tech-icons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
+    .service-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
-        .tech-icons img {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-        }
+    .service-title {
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        /* Service columns */
-        .service-column {
-            flex: 1 1 200px;
-            min-width: 200px;
-        }
+    .service-title i {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      border: 2px solid #e46c0a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #e46c0a;
+    }
 
-        .service-column h4 {
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
+    .service-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444;
+    }
 
-        .service-column h4::before {
-            content: "↗";
-            display: inline-block;
-            margin-right: 8px;
-            color: #ff4500;
-            font-size: 18px;
-        }
-
-        .service-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .service-column ul li {
-            margin-bottom: 6px;
-            font-size: 14px;
-        }
-
-        @media(max-width:1000px) {
-            .services-container {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
-    </style>
+    /* Responsive */
+    @media (max-width: 768px) {
+      .services-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .services-content {
+        grid-template-columns: 1fr;
+      }
+      .service-title {
+        justify-content: center;
+      }
+    }
+  </style>
 
 
 <!-- service css end -->
@@ -22000,80 +22002,38 @@
           <a href="contacts.html">Contacts</a>
         </nav>
       </aside>
-    <div class="services-container">
-        <!-- Technologies Box -->
-        <div class="tech-box">
-            <img src="https://via.placeholder.com/300x150.png?text=Tech+Image" alt="Technologies">
 
-        </div>
 
-        <!-- Services Columns -->
-        <div class="service-column">
-            <h4>Software</h4>
-            <ul>
-                <li>IT Consulting</li>
-                <li>Product Development</li>
-                <li>MVP Development</li>
-                <li>ERP Software</li>
-                <li>Dedicated Team</li>
-                <li>CRM Development</li>
-            </ul>
-        </div>
 
-        <div class="service-column">
-            <h4>Web Development</h4>
-            <ul>
-                <li>Web Applications</li>
-                <li>Progressive Web Applications</li>
-                <li>Single Page Application</li>
-                <li>Web Portals</li>
-                <li>Corporate Websites</li>
-                <li>Marketplaces</li>
-            </ul>
-        </div>
+  <section class="services-section">
+    <!-- Left Image -->
+<div class="services-image">
+  <img src="serviceimage.jpg" alt="Services Image">
+</div>
 
-        <div class="service-column">
-            <h4>Mobile App Development</h4>
-            <ul>
-                <li>iOS App</li>
-                <li>Android App</li>
-                <li>Flutter</li>
-                <li>Cross-platform</li>
-                <li>AR/VR App Development</li>
-                <li>Wearable Solutions</li>
-            </ul>
-        </div>
+    <!-- Right Content -->
+    <div class="services-content">
+      <div class="service-box">
+        <div class="service-title"><i>↑</i> Diversified Excellence</div>
+        <p class="service-desc">We excel in multiple sectors, offering tailored solutions that meet the evolving needs of our clients and partners.</p>
+      </div>
 
-        <div class="service-column">
-            <h4>Data Science & AI</h4>
-            <ul>
-                <li>AWS & Cloud</li>
-                <li>Big Data Solutions</li>
-                <li>DevOps Services</li>
-                <li>IoT Development</li>
-            </ul>
-        </div>
+      <div class="service-box">
+        <div class="service-title"><i>↑</i> Innovation and Technology</div>
+        <p class="service-desc">Embracing cutting-edge technologies like AI, ML, and fintech, we drive efficiency and create value across all our ventures.</p>
+      </div>
 
-        <div class="service-column">
-            <h4>QA & Software Testing</h4>
-            <ul>
-                <li>Test Automation</li>
-                <li>Cybersecurity</li>
-                <li>Functional Testing</li>
-                <li>Performance Testing</li>
-            </ul>
-        </div>
+      <div class="service-box">
+        <div class="service-title"><i>↑</i> Commitment to Quality</div>
+        <p class="service-desc">Our dedication to quality and customer satisfaction underscores every project and service we deliver.</p>
+      </div>
 
-        <div class="service-column">
-            <h4>UX/UI Design</h4>
-            <ul>
-                <li>UX Review</li>
-                <li>Product Design</li>
-                <li>Rapid UX Prototyping</li>
-                <li>Mobile App Design</li>
-            </ul>
-        </div>
+      <div class="service-box">
+        <div class="service-title"><i>↑</i> Global Vision, Local Expertise</div>
+        <p class="service-desc">With a global outlook and local expertise, we navigate complex markets to achieve sustainable growth.</p>
+      </div>
     </div>
+  </section>
 
   <!-- sidebar header js -->
   <script>

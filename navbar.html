@@ -1,202 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Responsive Header with Right Sidebar</title>
-<style>
-  /* Reset and base */
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Section</title>
+  <style>
 
-  /* Header styles */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #004080;
-    color: white;
-    position: relative;
-  }
 
-  .logo img {
-    width: 150px;
-    height: 35px;
-    object-fit: contain;
-  }
-
-  nav {
-    display: flex;
-    gap: 20px;
-  }
-
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 4px;
-  }
-
-  nav a:hover {
-    background-color: #0066cc;
-  }
-
-  /* Contact and menu button */
-  .contact {
-    margin-left: 20px;
-  }
-
-  .menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-  }
-
-  .menu-btn svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  /* Sidebar styles */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px; /* hidden by default */
-    width: 300px;
-    height: 100%;
-    background-color: #003366;
-    color: white;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-    transition: right 0.3s ease;
-    overflow-y: auto;
-    z-index: 1000;
-  }
-
-  .sidebar.active {
-    right: 0;
-  }
-
-  .sidebar h2 {
-    margin-top: 0;
-  }
-
-  .sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .sidebar nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-  }
-
-  .sidebar nav a:hover {
-    text-decoration: underline;
-  }
-
-  .sidebar .close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    nav.main-nav {
-      display: none;
+    .services-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
-    .menu-btn {
-      display: block;
+
+    /* Left image box */
+    .services-image {
+      flex: 1 1 300px;
+      min-width: 280px;
+      max-width: 350px;
+      background: #b0a8a8;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      height: 400px;
     }
-  }
-</style>
+
+    /* Right content */
+    .services-content {
+      flex: 2 1 500px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-title {
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-title i {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      border: 2px solid #e46c0a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #e46c0a;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .services-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .services-content {
+        grid-template-columns: 1fr;
+      }
+      .service-title {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
+  <section class="services-section">
+    <!-- Left Image -->
+    <div class="services-image">Add Image</div>
 
-<header>
-  <div class="logo">
-    <a href="index.html"><img src="images/logo.webp" alt="Logo" /></a>
-  </div>
+    <!-- Right Content -->
+    <div class="services-content">
+      <div class="service-box">
+        <div class="service-title"><i>↑</i> Diversified Excellence</div>
+        <p class="service-desc">We excel in multiple sectors, offering tailored solutions that meet the evolving needs of our clients and partners.</p>
+      </div>
 
-  <nav class="main-nav">
-    <a href="service.html">Services</a>
-    <a href="industries&Solutions.html">Industries & Solutions</a>
-    <a href="about.html">About Us</a>
-    <a href="contacts.html">Contacts</a>
-  </nav>
+      <div class="service-box">
+        <div class="service-title"><i>↑</i> Innovation and Technology</div>
+        <p class="service-desc">Embracing cutting-edge technologies like AI, ML, and fintech, we drive efficiency and create value across all our ventures.</p>
+      </div>
 
-  <div class="contact">
-    <a href="tel:+918888888888" style="color: white; text-decoration:none;">+91 XXXXXXXXXX</a>
-  </div>
+      <div class="service-box">
+        <div class="service-title"><i>↑</i> Commitment to Quality</div>
+        <p class="service-desc">Our dedication to quality and customer satisfaction underscores every project and service we deliver.</p>
+      </div>
 
-  <button class="menu-btn" aria-label="Open menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <line x1="3" y1="12" x2="21" y2="12"/>
-      <line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
-  </button>
-</header>
-
-<!-- Sidebar -->
-<aside class="sidebar" aria-hidden="true">
-  <button class="close-btn" aria-label="Close menu">&times;</button>
-  <h2>Menu</h2>
-  <nav>
-    <a href="service.html">Services</a>
-    <a href="technologies.html">Technologies</a>
-    <a href="software-development.html">Software Development</a>
-    <a href="web-development.html">Web Development</a>
-    <a href="mobile-development.html">Mobile App Development</a>
-    <a href="data-science-consulting.html">Data Science & AI</a>
-    <a href="qa-software-testing-services.html">QA & Software Testing</a>
-    <a href="ui-ux-design-services.html">UX/UI Design</a>
-    <a href="industries&Solutions.html">Industries & Solutions</a>
-    <a href="about.html">About Us</a>
-    <a href="contacts.html">Contacts</a>
-  </nav>
-</aside>
-
-<script>
-  const menuBtn = document.querySelector('.menu-btn');
-  const sidebar = document.querySelector('.sidebar');
-  const closeBtn = document.querySelector('.close-btn');
-
-  menuBtn.addEventListener('click', () => {
-    sidebar.classList.add('active');
-    sidebar.setAttribute('aria-hidden', 'false');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    sidebar.classList.remove('active');
-    sidebar.setAttribute('aria-hidden', 'true');
-  });
-
-  // Close sidebar when clicking outside sidebar on mobile
-  document.addEventListener('click', (e) => {
-    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
-      sidebar.classList.remove('active');
-      sidebar.setAttribute('aria-hidden', 'true');
-    }
-  });
-</script>
-
+      <div class="service-box">
+        <div class="service-title"><i>↑</i> Global Vision, Local Expertise</div>
+        <p class="service-desc">With a global outlook and local expertise, we navigate complex markets to achieve sustainable growth.</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
