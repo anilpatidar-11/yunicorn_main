@@ -1,232 +1,125 @@
-/* Main container */
-.it-container {
-  width: 90vw;
-  max-width: 1100px;
-  background-color: #1a1a1a;
-  border-radius: 12px;
-  display: flex;
-  overflow: hidden;
-  box-shadow: 0 0 25px rgba(255 255 255 / 0.05);
-  height: 600px;
-  margin: 0 auto;
-  /* center horizontally */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Navbar Demo</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* Left Panel */
-.it-left {
-  background-color: #1a1a1a;
-  color: white;
-  width: 40%;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 12px 0 0 12px;
-}
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-/* Top text content */
-.it-left-top {
-  max-width: 280px;
-}
+    /* Navbar */
+    nav.navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: transparent;
+      z-index: 1000;
+    }
 
-.it-category {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 1.2px;
-  margin-bottom: 14px;
-  text-transform: uppercase;
-  color: #ddd;
-}
+    nav.navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
-.it-title {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 18px 0;
-  user-select: none;
-}
+    nav.navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff; /* initial logo color on transparent */
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
 
-.it-description {
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #ccc;
-  margin-bottom: 36px;
-  user-select: none;
-}
+    nav.navbar.scrolled .logo {
+      color: #111; /* logo color on scroll */
+    }
 
-/* Text groups */
-.it-text-groups {
-  display: flex;
-  column-gap: 40px;
-  flex-wrap: wrap;
-  margin-bottom: 36px;
-}
+    nav.navbar .nav-links {
+      list-style: none;
+      display: flex;
+    }
 
-.it-text-group {
-  border-left: 3px solid #e57421;
-  padding-left: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-width: 90px;
-  user-select: none;
-}
+    nav.navbar .nav-links li {
+      margin-left: 20px;
+    }
 
-/* Right column text group */
-.it-text-group.it-right-col {
-  border-left: none;
-  border-right: 3px solid #e57421;
-  min-width: 130px;
-}
+    nav.navbar .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-/* Text box */
-.it-text-box {
-  background-color: #ddd;
-  color: #111;
-  padding: 4px 8px;
-  font-weight: 600;
-  font-size: 18px;
-  max-width: max-content;
-  cursor: default;
-  border-radius: 2px;
-  user-select: text;
-}
+    nav.navbar.scrolled .nav-links li a {
+      color: #111;
+    }
 
-.it-text-small {
-  font-size: 9px;
-  font-weight: 400;
-  margin-top: -10px;
-  max-width: max-content;
-  color: #444;
-  user-select: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+    /* Dummy sections for scrolling */
+    section {
+      height: 100vh;
+      padding: 50px 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+    }
 
-/* Button */
-.it-btn {
-  border: 1.5px solid #e57421;
-  padding: 8px 20px;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  background: transparent;
-  color: #e57421;
-  border-radius: 25px;
-  cursor: pointer;
-  width: max-content;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  user-select: none;
-  text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  letter-spacing: 0.8px;
-}
+    section:nth-child(odd) {
+      background-color: #ff0070;
+    }
 
-.it-btn:hover {
-  background-color: #e57421;
-  color: #111;
-}
+    section:nth-child(even) {
+      background-color: #6747c7;
+    }
 
-.it-btn svg {
-  width: 12px;
-  height: 12px;
-  stroke: currentColor;
-  stroke-width: 2.5px;
-  fill: none;
-}
+  </style>
+</head>
+<body>
 
-/* Right Panel (Image Placeholder) */
-.it-right {
-  background-color: #d4d4d4;
-  flex: 1;
-  margin-left: 14px;
-  border-radius: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #222;
-  font-size: 20px;
-  font-weight: 600;
-  user-select: none;
-  position: relative;
-  box-shadow: inset 0 0 12px #838d50aa;
-}
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar">
+    <a href="index.html" class="logo">LOGO</a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
-.it-right::before {
-  content: "";
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 6px;
-  right: 6px;
-  border-radius: 14px;
-  box-shadow: inset 0 0 30px #8f9f68cc;
-  pointer-events: none;
-}
+  <!-- Dummy sections for scroll -->
+  <section>Section 1</section>
+  <section>Section 2</section>
+  <section>Section 3</section>
+  <section>Section 4</section>
 
-/* Responsive */
-@media (max-width: 900px) {   .it-right {
-  flex: 1 1 400px;       /* flexible width for responsiveness */
-  min-width: 280px;      /* don’t shrink too small */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;      /* in case of rounded corners */
-  border-radius: 20px;   /* optional rounded edges */
-}
+  <script>
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
 
-.it-right img {
-  width: 100%;           /* scales to container */
-  height: auto;          /* keeps aspect ratio */
-  object-fit: cover;     /* ensures it fills nicely if parent has fixed height */
-  border-radius: 20px;   /* matches parent */
-  display: block;
-  max-width: 100%;
-}
-
-  .it-container {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .it-left {
-    width: 100%;
-    border-radius: 12px 12px 0 0;
-    padding: 30px 25px;
-  }
-
-  .it-right {
-    margin-left: 0;
-    margin-top: 25px;
-    border-radius: 14px;
-    height: 280px;
-  }
-
-  .it-text-groups {
-    column-gap: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .it-title {
-    font-size: 28px;
-  }
-
-  .it-description {
-    font-size: 13px;
-  }
-
-  .it-text-box {
-    font-size: 16px;
-    padding: 3px 6px;
-  }
-
-  .it-text-small {
-    font-size: 8px;
-  }
-}
+</body>
+</html>

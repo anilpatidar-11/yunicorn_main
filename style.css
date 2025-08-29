@@ -1,20 +1,59 @@
 /* OUR EXPERTISE section css Start */
 
 /* Expertise Section - Main container */
+
+/* Container for entire section */
 .expertise-section {
+
+  display: flex;
+  flex-direction: column; /* stack heading + content */
+padding: 40px;
+}
+
+/* Heading div */
+.expertise-heading h5 {
+  font-weight: 600;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  color: #111;
+  margin-bottom: 20px;
+
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.expertise-heading h5::before {
+  content: "•";       
+  font-size: 28px;    
+  color: black;        
+  margin-right: 8px;  
+  vertical-align: middle;
+}
+/* .our_expertise h5::before {
+  content: "•";       
+  font-size: 28px;    
+  color: black;        
+  margin-right: 8px;  
+  vertical-align: middle;
+} */
+
+
+/* Content wrapper: left image, right text */
+.expertise-content-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  padding: 40px 10%;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  flex-wrap: wrap; /* for smaller screens */
+
 }
 
 /* Left side - Image */
 .expertise-image {
   flex: 1 1 45%;
   max-width: 550px;
-  order: 1; /* left on desktop */
+  order: 1;
 }
 
 .expertise-image img {
@@ -28,15 +67,7 @@
 .expertise-content {
   flex: 1 1 50%;
   max-width: 600px;
-  order: 2; /* right on desktop */
-}
-
-.our_expertise h5 {
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 1.2px;
-  color: #111;
-  margin-bottom: 20px;
+  order: 2;
 }
 
 .expertise-list {
@@ -111,9 +142,8 @@
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
-  .expertise-section {
-    flex-direction: column; /* stack image on top and text below */
-    padding: 30px 5%;
+  .expertise-content-wrapper {
+    flex-direction: column; /* stack image above text */
     gap: 30px;
   }
 
@@ -124,13 +154,9 @@
     margin: 0 auto;
   }
 
-  .expertise-content {
-   
-  }
-
-  .our_expertise h5 {
+  .expertise-heading h5 {
     font-size: 16px;
-    
+    text-align: center;
   }
 
   .expertise-list li {
@@ -280,7 +306,7 @@
 
 .it-btn:hover {
   background-color: #6747c7 ;
-  color: #111;
+  color:white;
 }
 
 .it-btn svg {
@@ -602,3 +628,8 @@
 
 /* import export************************************************* end */
 /* 
+
+
+/* 
+
+

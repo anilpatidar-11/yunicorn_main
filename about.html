@@ -35,122 +35,103 @@
 
 
     <!-- Navbar css responsivenes -->
- <style>
-    /* Header styles */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: black;
-      color: white;
-      position: relative;
-    }
+    <!-- sidebar css start-->
+  <style>
 
-    .logo img {
-      width: 150px;
-      height: 35px;
-      object-fit: contain;
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 4px;
-    }
-
-    nav a:hover {
-      background-color: #0066cc;
-    }
-
-    /* Contact and menu button */
-    .contact {
-      margin-left: 20px;
-    }
-
-    .menu-btn {
+    /* Overlay */
+    .menu-overlay {    background: #111;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
       display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: white;
+      z-index: 900;
     }
 
-    .menu-btn svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    /* Sidebar styles */
+    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 0;
-      right: -300px;
-      /* hidden by default */
-      width: 300px;
+      right: -320px;
+      width: 320px;
       height: 100%;
-      background-color: black;
-      color: white;
+      background: #000;
+      color: #fff;
       padding: 20px;
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+      box-shadow: -2px 0 5px rgba(0,0,0,0.4);
       transition: right 0.3s ease;
-      overflow-y: auto;
       z-index: 1000;
     }
 
-    .sidebar.active {
+    .sidebar.open {
       right: 0;
     }
 
-    .sidebar h2 {
-      margin-top: 0;
-    }
-
-    .sidebar nav {
+    /* Header */
+    .sidebar-header {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
     }
 
-    .sidebar nav a {
-      color: white;
+    .sidebar-header .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
       text-decoration: none;
-      font-size: 16px;
     }
 
-    .sidebar nav a:hover {
-      text-decoration: underline;
-    }
-
-    .sidebar .close-btn {
+    .close-btn {
       background: none;
       border: none;
-      color: white;
-      font-size: 24px;
+      font-size: 26px;
+      color: #fff;
       cursor: pointer;
-      position: absolute;
-      top: 10px;
-      right: 15px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav.main-nav {
-        display: none;
-      }
+    /* Menu */
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-      .menu-btn {
-        display: block;
-      }
+    .menu li {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .menu li span {
+      font-size: 18px;
+    }
+
+    /* Open button (for demo) */
+    .open-sidebar-btn {
+      margin: 20px;
+      padding: 10px 15px;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
     }
   </style>
+<!-- 
+sidebar css end -->
+
+
     <style>
         #nprogress {
             --h: 2px;
@@ -291,7 +272,7 @@
     <style data-emotion="x-global 0"></style>
     <style data-emotion="x-global tukfey">
         :root {
-            --nprogress-color: #FF7E29;
+            --nprogress-color: #6747C7;
             --dt-eaa96658: 1560px;
             --dt-86e5c9dd: 16px;
         }
@@ -368,10 +349,10 @@
             background-color: #fff;
         }
 
-        #__next {
-            height: 100%;
-            margin: auto;
-        }
+    #__next {
+      height: 10%;
+      margin: auto;
+    }
 
         button,
         input,
@@ -548,7 +529,7 @@
 
         @media (hover: hover) {
             .x-1ex005a-_c7ea0effa ._c6e60346:hover {
-                color: #FF7E29 !important;
+                color: #6747C7 !important;
             }
 
             .x-1ex005a-_c7ea0effa ._c6e60346:hover::before {
@@ -559,7 +540,7 @@
         .x-1ex005a-_c7ea0effa ._cd5f2b288._c41b76255 {
             min-height: 2rem;
             padding: 0 1rem;
-            border: 1px solid #FF7E29;
+            border: 1px solid #6747C7;
         }
 
         @media (min-width: 900px) {
@@ -828,15 +809,15 @@
         }
 
         .x-1744l8y-_c388c5590 ._ce1c20270.Mui-active {
-            border-bottom-color: #FF7E29;
-            color: #FF7E29;
+            border-bottom-color: #6747C7;
+            color: #6747C7;
 
         }
 
         @media (hover: hover) {
             .x-1744l8y-_c388c5590 ._ce1c20270[href]:hover {
-                color: #FF7E29;
-                border-bottom-color: #FF7E29;
+                color: #6747C7;
+                border-bottom-color: #6747C7;
             }
         }
 
@@ -875,7 +856,7 @@
         ._is-hover .x-1744l8y-_c388c5590 ._ce1c20270.Mui-active,
         ._is-scroll .x-1744l8y-_c388c5590 ._ce1c20270.Mui-active,
         ._is-light .x-1744l8y-_c388c5590 ._ce1c20270.Mui-active {
-            color: #FF7E29;
+            color: #6747C7;
         }
 
         @media (hover: hover) {
@@ -883,7 +864,7 @@
             ._is-hover .x-1744l8y-_c388c5590 ._ce1c20270[href]:hover,
             ._is-scroll .x-1744l8y-_c388c5590 ._ce1c20270[href]:hover,
             ._is-light .x-1744l8y-_c388c5590 ._ce1c20270[href]:hover {
-                color: #FF7E29;
+                color: #6747C7;
             }
         }
 
@@ -1022,7 +1003,7 @@
 
         .x-agsqeq-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -1061,7 +1042,7 @@
         }
 
         .x-12cn2ek-_c548fdab7 ._c6ab14817.Mui-active {
-            color: #FF7E29;
+            color: #6747C7;
             margin-left: 12px;
         }
 
@@ -1842,7 +1823,7 @@
 
         .x-oegfn9-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -3197,7 +3178,7 @@
 
         .x-pfe7ax-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -3365,7 +3346,7 @@
 
         .x-12cnych-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -3472,7 +3453,7 @@
 
         .x-f98x20-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -3633,7 +3614,7 @@
 
         .x-1i5yoxm-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -3940,7 +3921,7 @@
 
         .x-10lxzww-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -3988,7 +3969,7 @@
             overflow: visible;
             color: rgba(0, 0, 0, 0.54);
             transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-            color: #FF7E29;
+            color: #6747C7;
             font-family: '__IBM_Plex_Mono_10c8d4';
         }
 
@@ -4043,13 +4024,13 @@
 
         @media (hover: hover) {
             .x-cxsrzk-_cd91c6f24._c1bb96f4b:hover {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
 
         .x-cxsrzk-_cd91c6f24._c51aafd9a {
-            border: 1px solid #FF7E29;
+            border: 1px solid #6747C7;
             color: #000000;
             transition-timing-function: cubic-bezier(0.12, 0.77, 0.16, 0.93);
             transition-duration: 0.3s;
@@ -4058,8 +4039,8 @@
 
         @media (hover: hover) {
             .x-cxsrzk-_cd91c6f24._c51aafd9a:hover {
-                border-color: #FF7E29;
-                background-color: #FF7E29;
+                border-color: #6747C7;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
@@ -4187,7 +4168,7 @@
             }
 
             .x-cxsrzk-_cd91c6f24.MuiIconButton-sizeLarge._c1bb96f4b:hover:before {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 transform: scale(0.8);
             }
         }
@@ -4538,7 +4519,7 @@
         }
 
         .x-l7pgor-_c5e3fa43 ._c9e807cd5._cf930482c {
-            border-left: 4px solid #FF7E29;
+            border-left: 4px solid #6747C7;
             color: #ffffff;
         }
 
@@ -4564,7 +4545,7 @@
             align-items: center;
             padding: 0.75rem 1rem;
             border-radius: 0.25rem;
-            background: #FF7E29;
+            background: #6747C7;
             backdrop-filter: blur(15px);
             color: #000000;
             text-decoration: none;
@@ -4633,7 +4614,7 @@
         }
 
         .x-l7pgor-_c5e3fa43 ._c52580a6a span {
-            color: #FF7E29;
+            color: #6747C7;
         }
 
         .x-l7pgor-_c5e3fa43 ._c92969b88 {
@@ -4868,7 +4849,7 @@
 
         .x-1d7r5kx-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -4916,7 +4897,7 @@
             overflow: visible;
             color: rgba(0, 0, 0, 0.54);
             transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-            color: #FF7E29;
+            color: #6747C7;
             padding: 12px;
             font-size: 1.75rem;
             font-family: '__IBM_Plex_Mono_10c8d4';
@@ -4973,13 +4954,13 @@
 
         @media (hover: hover) {
             .x-j82ako-_cd91c6f24._c1bb96f4b:hover {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
 
         .x-j82ako-_cd91c6f24._c51aafd9a {
-            border: 1px solid #FF7E29;
+            border: 1px solid #6747C7;
             color: #ffffff;
             transition-timing-function: cubic-bezier(0.12, 0.77, 0.16, 0.93);
             transition-duration: 0.3s;
@@ -4988,8 +4969,8 @@
 
         @media (hover: hover) {
             .x-j82ako-_cd91c6f24._c51aafd9a:hover {
-                border-color: #FF7E29;
-                background-color: #FF7E29;
+                border-color: #6747C7;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
@@ -5117,7 +5098,7 @@
             }
 
             .x-j82ako-_cd91c6f24.MuiIconButton-sizeLarge._c1bb96f4b:hover:before {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 transform: scale(0.8);
             }
         }
@@ -5185,7 +5166,7 @@
 
         .x-12fw0rf-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -5769,7 +5750,7 @@
             padding: 0;
             border: none !important;
             background-color: transparent !important;
-            color: #FF7E29 !important;
+            color: #6747C7 !important;
             width: 24px !important;
             height: 24px !important;
             z-index: 2;
@@ -5854,7 +5835,7 @@
             font-weight: 600;
             letter-spacing: -0.04em;
             font-family: '__Manrope_06ea59', '__Manrope_Fallback_06ea59', Helvetica, Arial, Helvetica, Arial, sans-serif;
-            color: #FF7E29;
+            color: #6747C7;
             font-weight: 700;
         }
 
@@ -5909,7 +5890,7 @@
 
         .x-5ho8m1-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -5960,7 +5941,7 @@
             overflow: visible;
             color: rgba(0, 0, 0, 0.54);
             transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-            color: #FF7E29;
+            color: #6747C7;
             font-family: '__IBM_Plex_Mono_10c8d4';
         }
 
@@ -6015,13 +5996,13 @@
 
         @media (hover: hover) {
             .x-349ngr-_c1102e234-_cd91c6f24._c1bb96f4b:hover {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
 
         .x-349ngr-_c1102e234-_cd91c6f24._c51aafd9a {
-            border: 1px solid #FF7E29;
+            border: 1px solid #6747C7;
             color: #ffffff;
             transition-timing-function: cubic-bezier(0.12, 0.77, 0.16, 0.93);
             transition-duration: 0.3s;
@@ -6030,8 +6011,8 @@
 
         @media (hover: hover) {
             .x-349ngr-_c1102e234-_cd91c6f24._c51aafd9a:hover {
-                border-color: #FF7E29;
-                background-color: #FF7E29;
+                border-color: #6747C7;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
@@ -6159,7 +6140,7 @@
             }
 
             .x-349ngr-_c1102e234-_cd91c6f24.MuiIconButton-sizeLarge._c1bb96f4b:hover:before {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 transform: scale(0.8);
             }
         }
@@ -6224,7 +6205,7 @@
 
         .x-1t8izkm-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -6310,7 +6291,7 @@
 
         .x-okm4oh-_ca220873-_c45d59bd1 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -6759,7 +6740,7 @@
         }
 
         .x-osryfs-_c9f19afa9 ._cb411ec9c.MuiAccordion-root.Mui-expanded {
-            color: #FF7E29;
+            color: #6747C7;
         }
 
         .x-osryfs-_c9f19afa9 ._cb411ec9c.MuiAccordion-root .MuiAccordionSummary-root {
@@ -6800,7 +6781,7 @@
             position: absolute;
             bottom: -0.125rem;
             left: 0;
-            background-color: #FF7E29;
+            background-color: #6747C7;
             transition: width 0.3s;
             will-change: width;
         }
@@ -7102,7 +7083,7 @@
 
         .x-1cq2rch-_ca220873-_c45d59bd1 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -7310,7 +7291,7 @@
 
         .x-65d4ec-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -7529,7 +7510,7 @@
 
         .x-u10tlu-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -7681,7 +7662,7 @@
 
         .x-s2uubo-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -8034,7 +8015,7 @@
 
         .x-1x55k78-_ca220873-_c45d59bd1 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -8132,7 +8113,7 @@
 
         .x-s0ll42-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -8732,7 +8713,7 @@
         }
 
         .x-13ggzbz-_cd593698d ._c588f4f84 {
-            border-left: 4px solid #FF7E29;
+            border-left: 4px solid #6747C7;
             padding-left: 0.75rem;
             min-height: 100%;
         }
@@ -9109,7 +9090,7 @@
 
         .x-13gvamh-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -9190,7 +9171,7 @@
 
         .x-pmhj7p-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -9300,7 +9281,7 @@
 
         .x-13tbjyc-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -9408,7 +9389,7 @@
 
         .x-zpuyi7-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -9888,7 +9869,7 @@
 
         .x-1i3bupa-_ca220873-_c45d59bd1 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -10063,7 +10044,7 @@
 
         .x-1px5cyi-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -10193,7 +10174,7 @@
 
         .x-1ucio75-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -10394,7 +10375,7 @@
 
         .x-1bx3e1l-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -10537,7 +10518,7 @@
 
         .x-1hggttj-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -10698,7 +10679,7 @@
 
         .x-1gh5s2h-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -10989,7 +10970,7 @@
 
         .x-n5ln1k-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -11126,7 +11107,7 @@
 
         @media (hover: hover) {
             .x-a5ip0t-_c1102e234-_c9fd73e6:hover ._c3f2754a8 {
-                color: #FF7E29;
+                color: #6747C7;
             }
 
             .x-a5ip0t-_c1102e234-_c9fd73e6:hover ._c9ad4ef61 img {
@@ -11253,7 +11234,7 @@
 
         .x-1kp9656-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -11333,7 +11314,7 @@
 
         .x-1m32wk5-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -14393,7 +14374,7 @@
 
         .x-1k8eo8z-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -14471,7 +14452,7 @@
 
         .x-1e3j0f0-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -14584,7 +14565,7 @@
             }
 
             .x-ya7b89-_c8e7ceb86 ._c576f89d0:hover:before {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 width: calc(100% + 16px);
                 height: calc(100% + 16px);
             }
@@ -14957,7 +14938,7 @@
 
         .x-1upppdt-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -15171,7 +15152,7 @@
 
         .x-tj4z6z-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -15391,7 +15372,7 @@
 
         .x-e38gd5-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -15829,18 +15810,18 @@
 
         .x-setvvw-_c3783ba93 ._cd3cd8fa4._cd8c41c28 {
             color: #000000;
-            border-color: #FF7E29;
+            border-color: #6747C7;
             cursor: default;
         }
 
         .x-setvvw-_c3783ba93 ._cd3cd8fa4._cd8c41c28._c65b7fcc9 {
-            color: #FF7E29;
+            color: #6747C7;
         }
 
         @media (min-width: 900px) {
             .x-setvvw-_c3783ba93 ._cd3cd8fa4._cd8c41c28 {
                 padding-left: 0.875rem;
-                border-left: 4px solid #FF7E29;
+                border-left: 4px solid #6747C7;
             }
         }
 
@@ -15904,7 +15885,7 @@
 
         .x-x62zfk-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -16238,7 +16219,7 @@
 
         .x-1k7jshz-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -16432,7 +16413,7 @@
         .x-vbqsa2-_cb7a819f6 ._cbfb50ac svg {
             display: block;
             margin-right: 1.5rem;
-            color: #FF7E29;
+            color: #6747C7;
         }
 
         .x-11skq6w {
@@ -16726,7 +16707,7 @@
 
         .x-jbd7yj-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -16791,18 +16772,18 @@
 
         .x-15vz1ok-_c3783ba93 ._cd3cd8fa4._cd8c41c28 {
             color: #ffffff;
-            border-color: #FF7E29;
+            border-color: #6747C7;
             cursor: default;
         }
 
         .x-15vz1ok-_c3783ba93 ._cd3cd8fa4._cd8c41c28._c65b7fcc9 {
-            color: #FF7E29;
+            color: #6747C7;
         }
 
         @media (min-width: 900px) {
             .x-15vz1ok-_c3783ba93 ._cd3cd8fa4._cd8c41c28 {
                 padding-left: 0.875rem;
-                border-left: 4px solid #FF7E29;
+                border-left: 4px solid #6747C7;
             }
         }
 
@@ -16866,7 +16847,7 @@
 
         .x-16rog1b-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -17580,7 +17561,7 @@
             font-weight: 700;
             letter-spacing: -0.06em;
             font-family: '__Manrope_06ea59', '__Manrope_Fallback_06ea59', Helvetica, Arial, Helvetica, Arial, sans-serif;
-            color: #FF7E29;
+            color: #6747C7;
         }
 
         @media (min-width: 1200px) {
@@ -17634,7 +17615,7 @@
 
         .x-1w5bmuc-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -17792,7 +17773,7 @@
 
         .x-1et8urq-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -18010,7 +17991,7 @@
 
         .x-7jicj6-_ca220873-_c45d59bd1 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -18238,7 +18219,7 @@
             }
 
             .x-jadcsa-_c3eb20b9a:hover ._c1dfa8dbc {
-                background-color: #FF7E29;
+                background-color: #6747C7;
             }
         }
 
@@ -18401,7 +18382,7 @@
 
         .x-1xcqmih-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -18480,7 +18461,7 @@
 
         .x-r873ed-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -18591,7 +18572,7 @@
 
         .x-1syi89-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -18717,7 +18698,7 @@
 
         .x-sqs436-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -18799,7 +18780,7 @@
 
         .x-pk26tn-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -19447,7 +19428,7 @@
 
         .x-3ttov0-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -19580,7 +19561,7 @@
             .x-1gyxpqs-_cdc096d04.MuiAccordion-root .MuiAccordionSummary-root .MuiIconButton-root {
                 background-color: transparent;
                 color: #000000;
-                border: 1px solid #FF7E29;
+                border: 1px solid #6747C7;
             }
         }
 
@@ -19679,7 +19660,7 @@
             overflow: visible;
             color: rgba(0, 0, 0, 0.54);
             transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-            color: #FF7E29;
+            color: #6747C7;
             padding: 5px;
             font-size: 1.125rem;
             font-family: '__IBM_Plex_Mono_10c8d4';
@@ -19736,13 +19717,13 @@
 
         @media (hover: hover) {
             .x-tf6izp-_cd91c6f24._c1bb96f4b:hover {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
 
         .x-tf6izp-_cd91c6f24._c51aafd9a {
-            border: 1px solid #FF7E29;
+            border: 1px solid #6747C7;
             color: #000000;
             transition-timing-function: cubic-bezier(0.12, 0.77, 0.16, 0.93);
             transition-duration: 0.3s;
@@ -19751,8 +19732,8 @@
 
         @media (hover: hover) {
             .x-tf6izp-_cd91c6f24._c51aafd9a:hover {
-                border-color: #FF7E29;
-                background-color: #FF7E29;
+                border-color: #6747C7;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
@@ -19880,7 +19861,7 @@
             }
 
             .x-tf6izp-_cd91c6f24.MuiIconButton-sizeLarge._c1bb96f4b:hover:before {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 transform: scale(0.8);
             }
         }
@@ -19985,7 +19966,7 @@
         }
 
         .x-g4nhko-_cd3129478 .line {
-            border-left: 4px solid #FF7E29;
+            border-left: 4px solid #6747C7;
             padding-left: 1em;
             font-weight: 700;
         }
@@ -19999,7 +19980,7 @@
         .x-g4nhko-_cd3129478 a {
             display: inline-block;
             max-width: 100%;
-            color: #FF7E29;
+            color: #6747C7;
             position: relative;
         }
 
@@ -20020,7 +20001,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background-color: #FF7E29;
+            background-color: #6747C7;
             position: absolute;
             top: 9px;
             left: -23px;
@@ -20569,7 +20550,7 @@
 
         .x-1nwapiq-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -20735,7 +20716,7 @@
 
         .x-qrtnr1-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -20842,7 +20823,7 @@
 
         .x-1ems0wh-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -20931,7 +20912,7 @@
             overflow: visible;
             color: rgba(0, 0, 0, 0.54);
             transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-            color: #FF7E29;
+            color: #6747C7;
             padding: 5px;
             font-size: 1.125rem;
             font-family: '__IBM_Plex_Mono_10c8d4';
@@ -20988,13 +20969,13 @@
 
         @media (hover: hover) {
             .x-jdfphv-_c1102e234-_cd91c6f24._c1bb96f4b:hover {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
 
         .x-jdfphv-_c1102e234-_cd91c6f24._c51aafd9a {
-            border: 1px solid #FF7E29;
+            border: 1px solid #6747C7;
             color: #000000;
             transition-timing-function: cubic-bezier(0.12, 0.77, 0.16, 0.93);
             transition-duration: 0.3s;
@@ -21003,8 +20984,8 @@
 
         @media (hover: hover) {
             .x-jdfphv-_c1102e234-_cd91c6f24._c51aafd9a:hover {
-                border-color: #FF7E29;
-                background-color: #FF7E29;
+                border-color: #6747C7;
+                background-color: #6747C7;
                 color: #ffffff;
             }
         }
@@ -21132,7 +21113,7 @@
             }
 
             .x-jdfphv-_c1102e234-_cd91c6f24.MuiIconButton-sizeLarge._c1bb96f4b:hover:before {
-                background-color: #FF7E29;
+                background-color: #6747C7;
                 transform: scale(0.8);
             }
         }
@@ -21268,7 +21249,7 @@
 
         .x-21u2dy-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -21377,7 +21358,7 @@
 
         .x-pda4gm-_c1102e234-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -21491,7 +21472,7 @@
 
         .x-11kfvx-_ca220873 a {
             text-decoration: none;
-            color: #FF7E29;
+            color: #6747C7;
             transition: color 0.3s;
         }
 
@@ -21585,7 +21566,7 @@
         }
 
         .x-19i42ds-_cabb2ea5 ._c6fb2d2ae {
-            color: #FF7E29;
+            color: #6747C7;
         }
 
         .x-19i42ds-_cabb2ea5 ._c6fb2d2ae svg {
@@ -21622,12 +21603,7 @@
 <!-- about section *******************************start -->
 <style>
   
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #fff;
-  color: #000;
-}
+
 
 /* ========================
    About Section
@@ -22064,15 +22040,7 @@ body {
     <!-- Image slider  -->
 
     <style>
-        * {
-            box-sizing: border-box
-        }
-
-        body {
-            font-family: Verdana, sans-serif;
-            margin: 0
-        }
-
+    
         .mySlides {
             display: none
         }
@@ -22189,45 +22157,751 @@ body {
 </head>
 
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5ZSGG9" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
 
+  <div id="__next">
+    <div class="x-xkp3iq-_c6705959f">
 
-      <!-- Navbar Header -->
-      <header>
-        <div class="logo">
-          <a href="index.html"><img src="images/logo.webp" alt="Logo" /></a>
+      <header class="_c12f7e6c0" style="background-color: black;">
+        <div id="header" class=" x-1ex005a-_c7ea0effa">
+          <div class="_c6d9761cb x-rpv428-_c31c540b3">
+            <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xl-6 x-1tly6xn">
+              <div class="MuiGrid-root MuiGrid-item x-1di0esc-_cf3ccb3b4">
+                <div class="x-1r1rerp-_c7c7309ce">
+  <a href="index.html">
+  <span class="_caefe8969" style="height: 80px; width: 180px;">
+    <img id="logoIcon" src="svgicons/logowhite.webp" alt="Logo" 
+         style="height: 100%; width: 100%; display: block; object-fit: contain;" />
+  </span>
+</a>
+                </div>
+              </div>
+              <div class="MuiGrid-root MuiGrid-item _lg-show x-1452skl-_cf3ccb3b4">
+                <nav class="x-1744l8y-_c388c5590">
+                  <div class="MuiGrid-root MuiGrid-container x-1ltnyiv">
+                    <div class="MuiGrid-root MuiGrid-item x-1jcnll2-_cf3ccb3b4">
+                      <div class="_c913e5125"><a
+                          class="MuiTypography-root MuiTypography-button _ce1c20270 x-agsqeq-_c1102e234-_ca220873"
+                          aria-label="Services" href="service.html">Services<svg
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium x-vubbuv" focusable="false"
+                            aria-hidden="true" viewBox="0 0 6.7 4.1">
+                            <polygon points="3.4,4.1 0,0.7 0.7,0 3.4,2.6 6,0 6.7,0.7"></polygon>
+                          </svg></a>
+                        <div class="_ceb2ea637">
+                          <div class="x-12cn2ek-_c548fdab7">
+                            <div class=" x-rpv428-_c31c540b3">
+                              <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6 x-cp8llg">
+                                <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 x-15ok9wv-_cf3ccb3b4">
+                                  <div class="_c99dfc283 x-1howa5v-_c99dfc283">
+                                    <picture class="_c32e542c4 x-gqa9gx-_c532222f7 _cefcd33a0">
+                                      <source
+                                        srcSet="/images/header/header-services-1x.webp 1x, /images/header/header-services-2x.webp 2x"
+                                        type="image/webp" /><img alt="" loading="lazy" width="398" height="287"
+                                        decoding="async" data-nimg="1" style="color:transparent"
+                                        src="images/header/header-services.png" />
+                                    </picture>
+                                    <div class="_c8358eaf3 MuiBox-root x-0">
+                                      <div class="MuiBox-root x-1qm1lh"><a
+                                          class="MuiButtonBase-root _ce696348 _c312c2437 _c2958b405 _c841099ba _c59c61373 _ce0351d3 x-1lwc5qp-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                          href="technologies.html"><span data-aria-label="" class="_cdc07fd24">
+                                            <div class="MuiTypography-root MuiTypography-h6 x-oegfn9-_ca220873">
+                                              Technologies</div>
+                                          </span><span class="_c7bdd0d29 _c16da548b"><span
+                                              class="svg x-d99uhk-_cb546cdac"><svg
+                                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                                focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                                </path>
+                                              </svg><svg
+                                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                                focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                                </path>
+                                              </svg></span></span></a></div>
+                                      <div class="x-3bl9sz-_c74ebe565">
+                                        <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 x-1roerpr">
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234"
+                                              aria-label="Python Development Team"
+                                              href="technologies/python-development-team.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="Python Development Team"
+                                                  loading="lazy" width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/gmhVnZOyl5ECGWy2gnJ9Q9zSpjf14PFqN2V8kDbw5039.svg?v=1731485402" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="Scala"
+                                              href="technologies/scala.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="Scala" loading="lazy"
+                                                  width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/rrwBOMRBx1MKAv7uHB5XEE3uD1Y0j0x93D7Bk6Qbe4bd.svg?v=1731512151" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="Docker"
+                                              href="technologies/docker.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="Docker" loading="lazy"
+                                                  width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/MURKQeN3uuDZD49rtd8qgYLq2zArvYy33yD49a4p9c6b.svg?v=1731485774" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="AWS"
+                                              href="technologies/aws.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="AWS" loading="lazy"
+                                                  width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/2MmQK5h383h7zJ0oP6pYQJ71cJ7JLr5hJ10Zg0qK1d19.svg?v=1735825062" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="Google Cloud"
+                                              href="technologies/google-cloud.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="Google Cloud"
+                                                  loading="lazy" width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/WLK4G173YZJaCUbCIT2ZXLfuiFEfHTJK3ytaPNQ84366.svg?v=1731485892" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="AWS RDS"
+                                              href="technologies/aws-rds.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="AWS RDS" loading="lazy"
+                                                  width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/KzTygMFWAyoagLx7rJzIX929BDdrSDMyv2yAkLr2788f.svg?v=1731485944" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="MySQL"
+                                              href="technologies/mysql.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="MySQL" loading="lazy"
+                                                  width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/J2bAI4VOnd6QddrTuTmRobJPcFXOxmS04ntBjtix8105.svg?v=1731486034" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="MVVM"
+                                              href="technologies/mvvm.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="MVVM" loading="lazy"
+                                                  width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/xpKwgtn4aFMvbSNER0ob2zUWNgDWPU3qvdWidU2S1a33.svg?v=1731574715" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="Swift"
+                                              href="technologies/swift.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="Swift" loading="lazy"
+                                                  width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/eOvDwhlG7at304jexz1lJMuEI3fY36jKn5D0doCu2f0a.svg?v=1731486205" />
+                                              </picture>
+                                            </a></div>
+                                          <div class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                                              class="_c8b4aca85 x-1986qx3-_c1102e234" aria-label="GraphQL"
+                                              href="technologies/graphql.html">
+                                              <picture class="x-gqa9gx-_c532222f7"><img alt="GraphQL" loading="lazy"
+                                                  width="48" height="48" decoding="async" data-nimg="1"
+                                                  style="color:transparent"
+                                                  src="storage/technologies_header_icons/small/2Owbiv8f4jmFgb6gRPMNXvNtGQ2A1DLgyJs3LVOha1f2.svg?v=1731486323" />
+                                              </picture>
+                                            </a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 x-1xwe7ck-_cf3ccb3b4">
+                                  <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6 x-gl855k">
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 x-14bxhpm-_cf3ccb3b4"><a
+                                        class="MuiButtonBase-root _c5b3e5471 _ce696348 _c312c2437 _c2958b405 _c59c61373 _ce0351d3 x-1lp3pmy-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                        target="_self" href="software-development.html"><span
+                                          class="_c7bdd0d29 _c944b66c4"><span class="svg x-d99uhk-_cb546cdac"><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg></span></span><span data-aria-label="" class="_cdc07fd24">
+                                          <div class="MuiTypography-root MuiTypography-h6 x-pfe7ax-_ca220873">Software
+                                          </div>
+                                        </span></a>
+                                      <div class="_c38af79dd">
+                                        <div class="MuiGrid-root MuiGrid-container x-3kkq0z">
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="IT Consulting"
+                                              href="it-consulting-services.html">IT Consulting</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Product Development"
+                                              href="product-development.html">Product Development</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="MVP Development"
+                                              href="mvp-software-development.html">MVP Development</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="ERP Software" href="erp-software.html">ERP
+                                              Software</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Dedicated Team"
+                                              href="dedicated-team.html">Dedicated Team</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="CRM Development"
+                                              href="crm-development.html">CRM Development</a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 x-14bxhpm-_cf3ccb3b4"><a
+                                        class="MuiButtonBase-root _c5b3e5471 _ce696348 _c312c2437 _c2958b405 _c59c61373 _ce0351d3 x-1lp3pmy-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                        target="_self" href="web-development.html"><span
+                                          class="_c7bdd0d29 _c944b66c4"><span class="svg x-d99uhk-_cb546cdac"><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg></span></span><span data-aria-label="" class="_cdc07fd24">
+                                          <div class="MuiTypography-root MuiTypography-h6 x-pfe7ax-_ca220873">Web
+                                            Development</div>
+                                        </span></a>
+                                      <div class="_c38af79dd">
+                                        <div class="MuiGrid-root MuiGrid-container x-3kkq0z">
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Web Applications"
+                                              href="app-development.html">Web Applications</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Progressive Web Applications"
+                                              href="progressive-web-app.html">Progressive Web Applications</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Single Page Application"
+                                              href="single-page-application.html">Single Page Application</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Web Portals" href="web-portals.html">Web
+                                              Portals</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Corporate Websites"
+                                              href="corporate-websites.html">Corporate Websites</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Marketplaces"
+                                              href="marketplaces.html">Marketplaces</a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 x-14bxhpm-_cf3ccb3b4"><a
+                                        class="MuiButtonBase-root _c5b3e5471 _ce696348 _c312c2437 _c2958b405 _c59c61373 _ce0351d3 x-1lp3pmy-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                        target="_self" href="mobile-development.html"><span
+                                          class="_c7bdd0d29 _c944b66c4"><span class="svg x-d99uhk-_cb546cdac"><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg></span></span><span data-aria-label="" class="_cdc07fd24">
+                                          <div class="MuiTypography-root MuiTypography-h6 x-pfe7ax-_ca220873">Mobile App
+                                            Development</div>
+                                        </span></a>
+                                      <div class="_c38af79dd">
+                                        <div class="MuiGrid-root MuiGrid-container x-3kkq0z">
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="iOS App" href="ios-development.html">iOS
+                                              App</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Android App"
+                                              href="android-development.html">Android App</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Flutter"
+                                              href="flutter-development.html">Flutter</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Cross-platform"
+                                              href="cross-platform-app-development.html">Cross-platform</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="AR/VR App Development"
+                                              href="arvr-app-development.html">AR/VR App Development</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Wearable Solutions"
+                                              href="wearable-solutions.html">Wearable Solutions</a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 x-14bxhpm-_cf3ccb3b4"><a
+                                        class="MuiButtonBase-root _c5b3e5471 _ce696348 _c312c2437 _c2958b405 _c59c61373 _ce0351d3 x-1lp3pmy-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                        target="_self" href="data-science-consulting.html"><span
+                                          class="_c7bdd0d29 _c944b66c4"><span class="svg x-d99uhk-_cb546cdac"><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg></span></span><span data-aria-label="" class="_cdc07fd24">
+                                          <div class="MuiTypography-root MuiTypography-h6 x-pfe7ax-_ca220873">Data
+                                            Science &amp; AI</div>
+                                        </span></a>
+                                      <div class="_c38af79dd">
+                                        <div class="MuiGrid-root MuiGrid-container x-3kkq0z">
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="AWS &amp; Cloud" href="aws-cloud.html">AWS
+                                              &amp; Cloud</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Big Data Solutions"
+                                              href="big-data-development.html">Big Data Solutions</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              href="devops.html" target="_self" aria-label="DevOps Services">DevOps
+                                              Services</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="IoT Development"
+                                              href="iot-development.html">IoT Development</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Artificial Intelligence"
+                                              href="artificial-intelligence.html">Artificial Intelligence</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="NFT marketplace"
+                                              href="nft-marketplace-development.html">NFT marketplace</a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 x-14bxhpm-_cf3ccb3b4"><a
+                                        class="MuiButtonBase-root _c5b3e5471 _ce696348 _c312c2437 _c2958b405 _c59c61373 _ce0351d3 x-1lp3pmy-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                        target="_self" href="qa-software-testing-services.html"><span
+                                          class="_c7bdd0d29 _c944b66c4"><span class="svg x-d99uhk-_cb546cdac"><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg></span></span><span data-aria-label="" class="_cdc07fd24">
+                                          <div class="MuiTypography-root MuiTypography-h6 x-pfe7ax-_ca220873">QA &amp;
+                                            Software Testing</div>
+                                        </span></a>
+                                      <div class="_c38af79dd">
+                                        <div class="MuiGrid-root MuiGrid-container x-3kkq0z">
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Test Automation"
+                                              href="test-automation.html">Test Automation</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Cybersecurity"
+                                              href="cyber-security-as-a-service.html">Cybersecurity</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Functional Testing"
+                                              href="functional-software-testing.html">Functional Testing</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Performance Testing"
+                                              href="performance-testing.html">Performance Testing</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Mobile App Testing"
+                                              href="mobile-app-testing.html">Mobile App Testing</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="QA Consulting" href="qa-consulting.html">QA
+                                              Consulting</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Load Testing Services"
+                                              href="load-testing-services.html">Load Testing Services</a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 x-14bxhpm-_cf3ccb3b4"><a
+                                        class="MuiButtonBase-root _c5b3e5471 _ce696348 _c312c2437 _c2958b405 _c59c61373 _ce0351d3 x-1lp3pmy-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                        target="_self" href="ui-ux-design-services.html"><span
+                                          class="_c7bdd0d29 _c944b66c4"><span class="svg x-d99uhk-_cb546cdac"><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg></span></span><span data-aria-label="" class="_cdc07fd24">
+                                          <div class="MuiTypography-root MuiTypography-h6 x-pfe7ax-_ca220873">UX/UI
+                                            Design</div>
+                                        </span></a>
+                                      <div class="_c38af79dd">
+                                        <div class="MuiGrid-root MuiGrid-container x-3kkq0z">
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="UX Review" href="ux-review.html">UX Review</a>
+                                          </div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Product Design"
+                                              href="product-design.html">Product Design</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Rapid UX Prototyping"
+                                              href="rapid-prototyping.html">Rapid UX Prototyping</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Mobile App Design"
+                                              href="mobile-app-design-services.html">Mobile App Design</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Web Design Services"
+                                              href="web-design-services.html">Web Design Services</a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item x-1jcnll2-_cf3ccb3b4">
+                      <div class="_c913e5125"><a
+                          class="MuiTypography-root MuiTypography-button _ce1c20270 x-agsqeq-_c1102e234-_ca220873"
+                          aria-label="Industries &amp; Solutions" href="industries&Solutions.html">Industries &amp; Solutions<svg
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium x-vubbuv" focusable="false"
+                            aria-hidden="true" viewBox="0 0 6.7 4.1">
+                            <polygon points="3.4,4.1 0,0.7 0.7,0 3.4,2.6 6,0 6.7,0.7"></polygon>
+                          </svg></a>
+                        <div class="_ceb2ea637">
+                          <div class="x-12cn2ek-_c548fdab7">
+                            <div class=" x-rpv428-_c31c540b3">
+                              <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6 x-cp8llg">
+                                <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 x-1cnlsh3-_cf3ccb3b4">
+                                  <div class="_c99dfc283 _cc99bad9f x-1howa5v-_c99dfc283">
+                                    <picture class="_c32e542c4 x-gqa9gx-_c532222f7 _cefcd33a0">
+                                      <source
+                                        srcSet="/storage/settings/menus/industries-and-solutions/medium/IJ5TyK58rZs0Ah2V65ZD8DNLcaAfsQS61gfgccxm.png.webp?v=1733149645 1x, /storage/settings/menus/industries-and-solutions/medium_x2/IJ5TyK58rZs0Ah2V65ZD8DNLcaAfsQS61gfgccxm.png.webp?v=1733149646 2x"
+                                        type="image/webp" /><img alt="" loading="lazy" width="398" height="287"
+                                        decoding="async" data-nimg="1" style="color:transparent"
+                                        src="storage/settings/menus/industries-and-solutions/medium/IJ5TyK58rZs0Ah2V65ZD8DNLcaAfsQS61gfgccxm5947.png?v=1733149645" />
+                                    </picture>
+                                    <div class="_c8358eaf3 MuiBox-root x-0">
+                                      <div class="MuiBox-root x-1itv5e3"><a
+                                          class="MuiButtonBase-root _ce696348 _c312c2437 _c2958b405 _c841099ba _c59c61373 _ce0351d3 x-1lwc5qp-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                          href="https://youtu.be/Wi8Yq9fxt3Y"><span data-aria-label=""
+                                            class="_cdc07fd24">
+                                            <div class="MuiTypography-root MuiTypography-h6 x-oegfn9-_ca220873">WEZOM
+                                            </div>
+                                          </span><span class="_c7bdd0d29 _c16da548b"><span
+                                              class="svg x-d99uhk-_cb546cdac"><svg
+                                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                                focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                                </path>
+                                              </svg><svg
+                                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                                focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                                </path>
+                                              </svg></span></span></a></div>
+                                      <div class="MuiTypography-root MuiTypography-body1 x-1i5yoxm-_ca220873">WEZOM - IT
+                                        partner.</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 x-kpvtg2-_cf3ccb3b4">
+                                  <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6 x-gl855k">
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 x-kpvtg2-_cf3ccb3b4"><a
+                                        class="MuiButtonBase-root _c5b3e5471 _ce696348 _c312c2437 _c2958b405 _c59c61373 _ce0351d3 x-1lp3pmy-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                        target="_self" href="industries.html"><span class="_c7bdd0d29 _c944b66c4"><span
+                                            class="svg x-d99uhk-_cb546cdac"><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg></span></span><span data-aria-label="" class="_cdc07fd24">
+                                          <div class="MuiTypography-root MuiTypography-h6 x-pfe7ax-_ca220873">Industries
+                                          </div>
+                                        </span></a>
+                                      <div class="_c38af79dd">
+                                        <div class="MuiGrid-root MuiGrid-container x-3kkq0z">
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Oil &amp; Gas"
+                                              href="industries/oil-gas.html">Oil &amp; Gas</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Energy and Utilities"
+                                              href="industries/energy-and-utilities.html">Energy and Utilities</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Logistics (Transportation)"
+                                              href="industries/logistics-software-development.html">Logistics
+                                              (Transportation)</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="eCommerce"
+                                              href="industries/ecommerce.html">eCommerce</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Healthcare"
+                                              href="industries/healthcare.html">Healthcare</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Real Estate"
+                                              href="industries/real-estate.html">Real Estate</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Fintech"
+                                              href="industries/fintech.html">Fintech</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Manufacturing"
+                                              href="industries/manufacturing.html">Manufacturing</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Education"
+                                              href="industries/education.html">Education</a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 x-kpvtg2-_cf3ccb3b4"><a
+                                        class="MuiButtonBase-root _c5b3e5471 _ce696348 _c312c2437 _c2958b405 _c59c61373 _ce0351d3 x-1lp3pmy-_c1102e234-_c2db8e43a-_c78b5ec82"
+                                        target="_self" href="index.html#"><span class="_c7bdd0d29 _c944b66c4"><span
+                                            class="svg x-d99uhk-_cb546cdac"><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c1880d696 x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg><svg
+                                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium _c66dff51c x-vubbuv"
+                                              focusable="false" aria-hidden="true" viewBox="0 0 16 16">
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15.9998 15.0003V1V0H14.9998H0.9998L0.999801 2L12.5861 2L0.292969 14.2931L1.70718 15.7074L13.9998 3.41474V15.0003H15.9998Z">
+                                              </path>
+                                            </svg></span></span><span data-aria-label="" class="_cdc07fd24">
+                                          <div class="MuiTypography-root MuiTypography-h6 x-pfe7ax-_ca220873">Solutions
+                                          </div>
+                                        </span></a>
+                                      <div class="_c38af79dd">
+                                        <div class="MuiGrid-root MuiGrid-container x-3kkq0z">
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="Custom CRM Development Service"
+                                              href="custom-crm-development-service.html">Custom CRM Development
+                                              Service</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              target="_self" aria-label="eLearning Software Development"
+                                              href="elearning-software-development.html">eLearning Software
+                                              Development</a></div>
+                                          <div
+                                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 x-1j4ru3t-_cf3ccb3b4"><a
+                                              class="MuiTypography-root MuiTypography-body2 _c6ab14817 x-f98x20-_c1102e234-_ca220873"
+                                              href="https://startups.wezom.com/" target="_blank"
+                                              aria-label="Startup Software Development">Startup Software Development</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="MuiGrid-root MuiGrid-item x-1jcnll2-_cf3ccb3b4">
+                      <div class="_c913e5125"><a
+                          class="MuiTypography-root MuiTypography-button _ce1c20270 x-agsqeq-_c1102e234-_ca220873"
+                          aria-label="Case Studies" href="portfolio.html">Case Studies</a></div>
+                    </div> -->
+                    <div class="MuiGrid-root MuiGrid-item x-1jcnll2-_cf3ccb3b4">
+                      <div class="_c913e5125"><a
+                          class="MuiTypography-root MuiTypography-button _ce1c20270 x-agsqeq-_c1102e234-_ca220873"
+                          aria-label="About Us" href="about.html">About Us</a></div>
+                    </div>
+                    <!-- <div class="MuiGrid-root MuiGrid-item x-1jcnll2-_cf3ccb3b4">
+                      <div class="_c913e5125"><a
+                          class="MuiTypography-root MuiTypography-button _ce1c20270 x-agsqeq-_c1102e234-_ca220873"
+                          aria-label="Blog" href="blog.html">Blog</a></div>
+                    </div> -->
+                    <div class="MuiGrid-root MuiGrid-item x-1jcnll2-_cf3ccb3b4">
+                      <div class="_c913e5125"><a
+                          class="MuiTypography-root MuiTypography-button _ce1c20270 x-agsqeq-_c1102e234-_ca220873"
+                          aria-label="Contacts" href="contacts.html">Contacts</a></div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <div class="MuiGrid-root MuiGrid-item x-uo8xe8-_cf3ccb3b4">
+                <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-spacing-sm-3 x-xiapor">
+                  <div class="MuiGrid-root MuiGrid-item _lg-show x-1452skl-_cf3ccb3b4"><span
+                      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 x-1x33dg6"><span
+                        class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><span
+                          class="_c666c233b"></span></span><span
+                        class="MuiGrid-root MuiGrid-item x-1452skl-_cf3ccb3b4"><a
+                          class="MuiTypography-root MuiTypography-button _c6e60346 _cca58f396 x-10lxzww-_c1102e234-_ca220873"
+                          aria-label="+1 872 225 3074" href="tel:+18722253074">+91 7777777777</a></span></span></div>
+                  <div class="MuiGrid-root MuiGrid-item x-1jcnll2-_cf3ccb3b4"><button
+                      class="MuiButtonBase-root _cd5f2b288 _caea414be _c41b76255 _c8688d4c9 _c64c1a226 x-e5ouv2-_c2db8e43a-_c78b5ec82"
+                      type="button" aria-label="Contact us"><span data-aria-label="Contact us"
+                        class="_cdc07fd24">Contact us</span></button></div>
+                  <div class="MuiGrid-root MuiGrid-item _lg-hide x-1452skl-_cf3ccb3b4"><button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium _c15a0e204 _c51aafd9a x-cxsrzk-_cd91c6f24 open-sidebar-btn"
+                      type="button" aria-label="Mobile menu"><svg
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium x-vubbuv" focusable="false" aria-hidden="true"
+                        viewBox="0 0 20 20">
+                        <rect y="5.5" class="st0" width="20" height="1.5"></rect>
+                        <rect y="11.5" class="st0" width="20" height="1.5"></rect>
+                      </svg></button></div>
+
+                      
+ 
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <nav class="main-nav">
-          <a href="service.html">Services</a>
-          <a href="industries&Solutions.html">Industries & Solutions</a>
-          <a href="about.html">About Us</a>
-          <a href="contacts.html">Contacts</a>
-        </nav>
-
-        <div class="contact">
-  <a href="#" style="color: white; text-decoration:none;">+91 7878787878</a>
-        </div>
-
-        <button class="menu-btn" aria-label="Open menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
       </header>
 
-  <aside class="sidebar" aria-hidden="true">
-        <button class="close-btn" aria-label="Close menu">&times;</button>
-        <h2>Menu</h2>
-        <nav>
-                  <a href="service.html">Services</a>
-          <a href="industries&Solutions.html">Industries & Solutions</a>
-          <a href="about.html">About Us</a>
-          <a href="contacts.html">Contacts</a>
-        </nav>
-      </aside>
+      <!-- sidebar html start -->
+ <!-- Overlay -->
+  <div class="menu-overlay"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="logo">Yunicorn</a>
+      <button class="close-btn" id="closeSidebar">&times;</button>
+    </div>
+    <ul class="menu">
+      <li><a href="service.html">Services</a> <span>&gt;</span></li>
+      <li><a href="industries&Solutions.html">Industries & Solutions</a> <span>&gt;</span></li>
+      <li><a href="#">Case Studies</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+    </ul>
+  </div>
+     
+           <!-- sidebar html end -->
+ 
+    </div>
+  </div>
+
     <section class="about-section">
         <!-- Left Content -->
         <div class="about-content">
@@ -22348,7 +23022,7 @@ body {
         </section>
 
         <!-- VALUES & VISION -->
-        <section class="section-values">
+        <section class="section-values" style= "padding-bottom: 50px;">
             <h2 class="values-title">VALUES AND VISION</h2>
 
             <div class="values-grid">
@@ -22453,31 +23127,46 @@ body {
         }
     </script>
 
-    
+ 
   <!-- sidebar header js -->
+<!-- sidebar js -->
   <script>
-    const menuBtn = document.querySelector('.menu-btn');
-    const sidebar = document.querySelector('.sidebar');
-    const closeBtn = document.querySelector('.close-btn');
+    const openBtn = document.querySelector('.open-sidebar-btn');
+    const closeBtn = document.getElementById('closeSidebar');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.querySelector('.menu-overlay');
 
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.add('active');
-      sidebar.setAttribute('aria-hidden', 'false');
+    // Open sidebar
+    openBtn.addEventListener('click', () => {
+      sidebar.classList.add('open');
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
     });
 
+    // Close sidebar
     closeBtn.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-      sidebar.setAttribute('aria-hidden', 'true');
+      sidebar.classList.remove('open');
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
     });
 
-    // Close sidebar when clicking outside sidebar on mobile
-    document.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
-        sidebar.classList.remove('active');
-        sidebar.setAttribute('aria-hidden', 'true');
+    // Close by clicking overlay
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+
+    // Escape key closes
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
       }
     });
-  </script>
+  </script> 
+  <!-- sidebar js -->
 
 </body>
 
